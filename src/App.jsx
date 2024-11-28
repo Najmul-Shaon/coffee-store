@@ -1,14 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useLoaderData } from "react-router-dom";
+import CoffeeCard from "./Components/CoffeeCard";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const coffees = useLoaderData();
 
   return (
     <>
-      <h1 className="text-3xl text-red-400 btn">Vite + React</h1>
+      <h1 className="text-3xl text-red-400 btn">
+        Total Coffees : {coffees.length}
+      </h1>
+      {coffees.map((coffee) => (
+        <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>
+      ))}
     </>
   );
 }
