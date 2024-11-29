@@ -50,6 +50,7 @@ const Users = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Creation</th>
+              <th>Last Sign In</th>
               <th>action</th>
             </tr>
           </thead>
@@ -62,6 +63,9 @@ const Users = () => {
 
                 <td>{user.email}</td>
                 <td>{user.createAt ? user.createAt : "n/a"}</td>
+                <td>
+                  {user.lastSignTIme ? user.lastSignTIme : "Need to login"}
+                </td>
                 <td className="flex gap-6 flex-col">
                   <button className="btn">Edit</button>
                   <button
