@@ -6,6 +6,9 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AddCoffee from "./Components/AddCoffee.jsx";
 import UpdateCoffee from "./Components/UpdateCoffee.jsx";
+import SIgnIn from "./Components/SIgnIn.jsx";
+import SignUP from "./Components/SignUP.jsx";
+import AuthProvider from "./Providers/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,10 +25,20 @@ const router = createBrowserRouter([
     element: <UpdateCoffee></UpdateCoffee>,
     loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`),
   },
+  {
+    path: "/signin",
+    element: <SIgnIn></SIgnIn>,
+  },
+  {
+    path: "/signup",
+    element: <SignUP></SignUP>,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
