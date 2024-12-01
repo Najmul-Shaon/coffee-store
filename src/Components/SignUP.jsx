@@ -11,10 +11,10 @@ const SignUP = () => {
     const name = form.name.value;
     const email = form.email.value;
     const pass = form.password.value;
-    console.log({ email, pass });
+
     createUser(email, pass)
       .then((res) => {
-        console.log(res.user);
+      
 
         const createAt = res.user.metadata.creationTime;
 
@@ -30,7 +30,7 @@ const SignUP = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+       
             if (data.insertedId) {
               Swal.fire({
                 title: "success!",
@@ -42,7 +42,7 @@ const SignUP = () => {
           });
       })
       .catch((e) => {
-        console.log(e.code);
+       
       });
   };
   return (

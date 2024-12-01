@@ -36,14 +36,13 @@ const Users = () => {
           });
       }
     });
-    console.log(id);
   };
   return (
     <div>
       <h3 className="text-3xl">Users: {users.length}</h3>
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
+          {/* table head */}
           <thead>
             <tr>
               <th>Sl</th>

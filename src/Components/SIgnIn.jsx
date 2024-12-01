@@ -8,10 +8,10 @@ const SIgnIn = () => {
     const form = e.target;
     const email = form.email.value;
     const pass = form.password.value;
-    console.log(email, pass);
+   
     signInUser(email, pass)
       .then((res) => {
-        console.log(res.user);
+       
 
         //   last login
         const lastSignTIme = res?.user?.metadata?.lastSignInTime;
@@ -28,11 +28,11 @@ const SIgnIn = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("Info updated db");
+     
           });
       })
       .catch((er) => {
-        console.log(er.code);
+       const code = er.code
       });
   };
   return (
